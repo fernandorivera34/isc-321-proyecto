@@ -1,0 +1,10 @@
+.env
+node_modules
+uploads
+dist
+.env.dev
+.env.prod
+web-client-dist
+./data
+
+/generated/prisma

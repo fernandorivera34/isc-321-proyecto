@@ -1,0 +1,64 @@
+import { Request, Response, NextFunction } from "express";
+import { Permission } from "@shared/types/permissions.js";
+
+const ensureAuthenticated = (
+  req: Request,
+  res: Response,
+  next: NextFunction,
+) => {
+  if (req.isUnauthenticated() || !req.user) {
+    res.status(401).send({ status: "unauthenticated" });
+  } else {
+    next();
+  }
+};
+
+const ensurePermissions =
+  (permission: Permission[]) =>
+    (req: Request, res: Response, next: NextFunction) => {
+      if (req.user) {
+        const userPermissions = req.user!.role!.permissions?.split(",") as Permission[];
+        if (userPermissions.includes("*")) {
+          next();
+        } else {
+          // Check if the user has all the required permissions
+          const hasAllPermissions = permission.every((perm) =>
+            userPermissions.includes(perm),
+          );
+
+          if (hasAllPermissions) {
+            next();
+          } else {
+            res.status(403).send({ status: "unauthorized" });
+          }
+        }
+      } else {
+        res.status(403).send({ status: "unauthorized" });
+      }
+    };
+
+const ensureAtLeastOnePermission =
+  (permissions: Permission[]) =>
+    (req: Request, res: Response, next: NextFunction) => {
+      if (req.user) {
+        const userPermissions = req.user!.role!.permissions?.split(",") as Permission[];
+        if (userPermissions.includes("*")) {
+          next();
+        } else {
+          // Check if the user has at least one of the required permissions
+          const hasPermission = permissions.some((perm) =>
+            userPermissions.includes(perm),
+          );
+
+          if (hasPermission) {
+            next();
+          } else {
+            res.status(403).send({ status: "unauthorized" });
+          }
+        }
+      } else {
+        res.status(403).send({ status: "unauthorized" });
+      }
+    };
+
+export { ensureAuthenticated, ensurePermissions, ensureAtLeastOnePermission };

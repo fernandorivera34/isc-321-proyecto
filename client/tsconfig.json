@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",
+    "ignoreDeprecations": "6.0",
+    "moduleResolution": "bundler",
+    "baseUrl": "../",
+    "paths": {
+      "@shared/*": [
+        "shared/*"
+      ]
+    },
+    "jsx": "react-jsx",
+    "strict": true,
+    "skipLibCheck": true
+  },
+  "include": [
+    "./src",
+    "../shared"
+  ]
+}

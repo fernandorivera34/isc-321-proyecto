@@ -1,0 +1,50 @@
+@import "tailwindcss";
+@config "../tailwind.config.js";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --scrollbar-track: #f6f8fb;
+  --scrollbar-thumb: #1e3976;
+  --scrollbar-thumb-hover: #274892;
+  --scrollbar-corner: #f6f8fb;
+}
+
+html {
+  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+  scrollbar-width: thin;
+}
+
+::selection {
+  background: rgba(30, 57, 118, 0.12);
+  color: #ffffff;
+}
+
+/* WebKit scrollbar */
+::-webkit-scrollbar {
+  width: 11px;
+  height: 11px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--scrollbar-track);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 999px;
+  border: 2px solid var(--scrollbar-track);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover);
+}
+
+::-webkit-scrollbar-corner {
+  background: var(--scrollbar-corner);
+}
+
+/* Optional: nicer app chrome */
+#root {
+  min-height: 100vh;
+}

@@ -1,0 +1,27 @@
+type Permission =
+  | "*"
+  | "*:*"
+  | "reports:read"
+  | "reports:export"
+  | "reports:print"
+  | "accounts:create"
+  | "accounts:read"
+  | "accounts:update"
+  | "accounts:delete"
+  | "accounts:restore"
+  | "accounts:change-password"
+  | "accounts:update-status"
+  | "account-roles:create"
+  | "account-roles:read"
+  | "account-roles:update"
+  | "account-roles:delete"
+  | "account-roles:restore"
+  | "config:update"
+  | "config:read"
+  | "config:export"
+  | "config:import"
+  | "profile:update"
+  | "logs:read"
+  | "logs:export";
+
+export type { Permission };

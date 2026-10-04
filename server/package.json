@@ -1,0 +1,18 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon --config nodemon.json",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc && tsc-alias -p tsconfig.json",
+    "start": "cross-env NODE_ENV=production node ./dist/server/src/index.js"
+  },
+  "dependencies": {
+    "@prisma/client-runtime-utils": "^7.8.0",
+    "@quixo3/prisma-session-store": "^3.1.19",
+    "express-session": "^1.19.0"
+  }
+}

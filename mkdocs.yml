@@ -1,0 +1,27 @@
+site_name: Documentation
+nav:
+  - Home: index.md
+  - Architecture: architecture.md
+  - Client: client.md
+  - Server: server.md
+  - API: api.md
+  - Database: prisma.md
+  - Routes: routes.md
+  - Schemas: schemas.md
+  - Middleware: middleware.md
+  - Services: services.md
+  - Features:
+    - Accounts: features/accounts.md
+    - Auth: features/auth.md
+    - Roles: features/roles.md
+  - Dev & Ops:
+    - Usage: usage.md
+    - Testing: testing.md
+    - Deployment: deployment.md
+    - Security: security.md
+    - Localization: localization.md
+  - Diagrams: diagrams.md
+  - Contributing: CONTRIBUTING.md
+markdown_extensions:
+  - toc:
+      permalink: true

@@ -1,0 +1,30 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "nodenext",
+    "ignoreDeprecations": "5.0",
+    "moduleResolution": "nodenext",
+    "baseUrl": "../",
+    "paths": {
+      "@shared/*": [
+        "shared/*"
+      ]
+    },
+    "rootDir": "../",
+    "outDir": "./dist",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "skipLibCheck": true
+  },
+  "include": [
+    "./src",
+    "../shared"
+  ],
+  "exclude": [
+    "../generated",
+    "generated",
+    "../dist",
+    "node_modules"
+  ]
+}

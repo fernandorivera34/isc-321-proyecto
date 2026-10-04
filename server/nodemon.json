@@ -1,0 +1,6 @@
+{
+  "watch": ["src", "../shared/", ".env.dev"],
+  "ext": "ts",
+  "ignore": ["src/**/*.spec.ts"],
+  "exec": "tsx ./src/index.ts"
+}
